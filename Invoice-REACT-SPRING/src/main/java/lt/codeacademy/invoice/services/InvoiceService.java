@@ -13,6 +13,8 @@ import lt.codeacademy.invoice.repositories.CustomerRepository;
 import lt.codeacademy.invoice.repositories.InvoiceRepository;
 import lt.codeacademy.invoice.repositories.ItemRepository;
 
+
+//is Mindaugo
 @Service
 public class InvoiceService {
 	@Autowired
