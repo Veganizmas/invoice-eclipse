@@ -9,6 +9,5 @@ public class InvoiceReactSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(InvoiceReactSpringApplication.class, args);
 	}
-	//bandau pull
-	//bandau push -D
+
 }
