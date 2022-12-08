@@ -14,7 +14,7 @@ import lt.codeacademy.invoice.repositories.InvoiceRepository;
 import lt.codeacademy.invoice.repositories.ItemRepository;
 
 
-//is Mindaugo komentaras
+
 @Service
 public class InvoiceService {
 	@Autowired
