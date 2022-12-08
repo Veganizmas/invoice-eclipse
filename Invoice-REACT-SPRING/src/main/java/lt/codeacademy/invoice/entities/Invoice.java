@@ -42,7 +42,7 @@ public class Invoice{
 	@OneToMany(mappedBy = "invoice")
 	private List<InvoiceItem> invoiceItems;
 
-	
+	//kjl
 	
 	
 }
