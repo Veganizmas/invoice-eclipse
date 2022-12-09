@@ -3,6 +3,7 @@ package lt.codeacademy.invoice.entities;
 import java.time.LocalDate;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,10 +27,7 @@ public class InvoiceItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-    @JoinColumn(name = "invoice_id")
-	private Invoice invoice;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "item_id")
 	private Item item;
 	

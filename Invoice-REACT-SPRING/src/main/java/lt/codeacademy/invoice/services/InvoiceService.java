@@ -30,13 +30,21 @@ public class InvoiceService {
 	
 	public Invoice addInvoice(Invoice invoice) {
 		
-		Customer cust = customerRepository.findById( invoice.getCustomerId().getId() ).get();
+		System.out.println(invoice + " servisas");
 		
-		invoice.setCustomerId(cust);
+		try{
+			//Customer cust = customerRepository.findById( invoice.getCustomerId().getId() ).get();
+			//System.out.println(cust);
+			//invoice.setCustomerId(cust);
+			
+			Invoice inv = invoiceRepository.save(invoice );
+			System.out.println(inv);
+			return inv;
+		}	catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
-		Invoice inv = invoiceRepository.save(invoice );
-		System.out.println(inv);
-		return inv;
+		return null;
 	}
 
 	public Invoice getInvoiceById(Long id) {

@@ -36,7 +36,4 @@ public class Item {
 	private String statusas;
 	private double bazineKaina;
 	
-
-	@OneToMany(mappedBy = "item")
-	private List<InvoiceItem> invoiceItems;
 }

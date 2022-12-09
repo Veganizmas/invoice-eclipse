@@ -3,6 +3,7 @@ package lt.codeacademy.invoice.entities;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,11 +36,11 @@ public class Invoice{
 	@Column(name="date")
 	private LocalDate myDate;
 	
-	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade=CascadeType.ALL)
 	@JoinColumn(name="customer_id", nullable=false)
 	private Customer customerId;
 	
-	@OneToMany(mappedBy = "invoice")
+	@OneToMany(cascade=CascadeType.ALL)
 	private List<InvoiceItem> invoiceItems;
 
 	//kjl

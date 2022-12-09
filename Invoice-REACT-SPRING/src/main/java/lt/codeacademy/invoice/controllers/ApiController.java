@@ -100,7 +100,15 @@ public class ApiController {
 
 	@PostMapping("/invoices")
 	public Invoice saveInvoiceDetails(@RequestBody Invoice invoice) {
+		invoice = getDummyInvoice();
+		System.out.println(invoice);
 		return invoiceService.addInvoice( invoice );
+		//return invoice;
+		
+		
+		
+		
+		
 		//Customer cust = new Customer( 1L, "as","as","as","as","as","as","as", null);
 		
 		//return new Invoice(1L, "123" , LocalDate.now(), cust, null );
@@ -120,6 +128,46 @@ public class ApiController {
 	public ResponseEntity<HttpStatus> deleteInvoiceById(@PathVariable Long id) {
 		invoiceService.deleteInvoiceById( id );
 		return new ResponseEntity<>( HttpStatus.NO_CONTENT );
+	}
+	@GetMapping("/invoices/dummy")
+	public Invoice getTestInvoice() {
+		return getDummyInvoice();
+	}
+	
+	public Invoice getDummyInvoice() {
+		Invoice inv2 = new Invoice();
+		Item itemas1 = new Item();
+		
+		itemas1.setAprasymas("metalinis kastuvelis");
+		itemas1.setBazineKaina(0);
+		itemas1.setGrupe("sodo prekės");
+		itemas1.setId(1L);
+		itemas1.setKodas("8214");
+		itemas1.setPavadinimas("Kastuvas");
+		itemas1.setStatusas("aktyvus");
+		
+		Customer cust2 = new Customer();
+		cust2.setAdresas("miesto g. 95");
+		cust2.setEmail("bananas25@gmail.com");
+		cust2.setId(1L);
+		cust2.setKlientoStatusas("aktyvus");
+		cust2.setPavarde("Mackevicius");
+		cust2.setTelNumeris("865228287");
+		cust2.setTipas("juridinis");
+		cust2.setVardas("Linas");
+		
+		ArrayList<InvoiceItem> items = new ArrayList<InvoiceItem>();
+		items.add( new InvoiceItem( null, itemas1, 10 ));
+		
+		inv2.setCustomerId(cust2);
+		inv2.setInvoiceItems(items);
+		inv2.setId(1L);
+		inv2.setMyDate(LocalDate.now());
+		inv2.setInvoiceNumber("552285");
+		
+		
+		return inv2;
+		
 	}
 
 }
