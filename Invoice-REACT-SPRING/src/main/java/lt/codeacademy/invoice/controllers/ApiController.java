@@ -100,8 +100,6 @@ public class ApiController {
 
 	@PostMapping("/invoices")
 	public Invoice saveInvoiceDetails(@RequestBody Invoice invoice) {
-		invoice = getDummyInvoice();
-		System.out.println(invoice);
 		return invoiceService.addInvoice( invoice );
 		//return invoice;
 		
