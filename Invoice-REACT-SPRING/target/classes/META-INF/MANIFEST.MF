@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Build-Jdk-Spec: 17
+Build-Jdk-Spec: 19
 Implementation-Title: Invoice_REACT_SPRING
 Implementation-Version: 1
 Created-By: Maven Integration for Eclipse
