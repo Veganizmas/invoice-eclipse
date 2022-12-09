@@ -35,7 +35,7 @@ public class Invoice{
 	@Column(name="date")
 	private LocalDate myDate;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name="customer_id", nullable=false)
 	private Customer customerId;
 	
