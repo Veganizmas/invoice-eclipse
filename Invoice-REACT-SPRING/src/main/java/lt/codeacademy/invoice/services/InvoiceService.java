@@ -33,15 +33,12 @@ public class InvoiceService {
 		System.out.println(invoice + " servisas");
 		
 		try{
-			//Customer cust = customerRepository.findById( invoice.getCustomerId().getId() ).get();
-			//System.out.println(cust);
-			//invoice.setCustomerId(cust);
 			
 			Invoice inv = invoiceRepository.save(invoice );
 			System.out.println(inv);
 			return inv;
 		}	catch(Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage() + "Suluzo cia");
 		}
 		
 		return null;
@@ -59,13 +56,7 @@ public class InvoiceService {
 
 	public Invoice updateInvoiceById(Long id, Invoice invoice) {
 
-//		Item itemById = itemRepository.findById( id ).get();
-//
-//		itemById.setPavadinimas( item.getPavadinimas() );
-//		itemById.setKodas( item.getKodas() );
-//		itemById.setAprasymas( item.getAprasymas() );
-//		itemById.setGrupe( item.getGrupe() );
-//		itemById.setStatusas( item.getStatusas() );
+
 
 		return invoiceRepository.save( invoice );
 	}

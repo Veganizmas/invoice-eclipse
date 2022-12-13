@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class InvoiceReactSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InvoiceReactSpringApplication.class, args);
+		SpringApplication.run( InvoiceReactSpringApplication.class, args );
 	}
 
 }

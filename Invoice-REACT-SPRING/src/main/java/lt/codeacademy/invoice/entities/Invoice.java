@@ -20,30 +20,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Invoice{
-	
+public class Invoice {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String invoiceNumber;
-	@JsonFormat(pattern="yyyy-MM-dd")
-	@Column(name="date")
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "date")
 	private LocalDate myDate;
-	
-	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade=CascadeType.ALL)
-	@JoinColumn(name="customer_id", nullable=false)
+
+	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.DETACH)
+	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customerId;
-	
-	@OneToMany(cascade=CascadeType.ALL)
+
+	@OneToMany(cascade = CascadeType.DETACH)
 	private List<InvoiceItem> invoiceItems;
 
-	//kjl
 	
-	
+
 }
