@@ -1,6 +1,5 @@
 package lt.codeacademy.invoice.entities;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
