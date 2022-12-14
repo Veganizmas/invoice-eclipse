@@ -38,7 +38,7 @@ public class Invoice {
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customerId;
 
-	@OneToMany(cascade = CascadeType.DETACH)
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<InvoiceItem> invoiceItems;
 
 	
