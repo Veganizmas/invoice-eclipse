@@ -21,9 +21,11 @@ import lt.codeacademy.invoice.entities.Customer;
 import lt.codeacademy.invoice.entities.Invoice;
 import lt.codeacademy.invoice.entities.InvoiceItem;
 import lt.codeacademy.invoice.entities.Item;
+import lt.codeacademy.invoice.entities.User;
 import lt.codeacademy.invoice.services.CustomerService;
 import lt.codeacademy.invoice.services.InvoiceService;
 import lt.codeacademy.invoice.services.ItemService;
+import lt.codeacademy.invoice.services.UserService;
 
 /**
  * Komentaras virš klasės JavaDoc. ApiController komentaras Šita klasė pažymėta
@@ -44,6 +46,9 @@ public class ApiController {
 
 	@Autowired
 	private InvoiceService invoiceService;
+	
+	@Autowired
+	private UserService userService;
 
 	@ApiOperation(value = "Get all Customers list")
 	@GetMapping("/customers")
@@ -98,6 +103,36 @@ public class ApiController {
 		itemService.deleteItemById( id );
 		return new ResponseEntity<>( HttpStatus.NO_CONTENT );
 	}
+	
+	//users endpoints
+	
+	@GetMapping("/users")
+	public List<User> getAllUsers() {
+		return userService.getUserList();
+	}
+
+	@PostMapping("/users")
+	public User saveUserDetails(@RequestBody User user) {
+		return userService.addUser( user );
+	}
+
+	@PostMapping("/users/{id}")
+	public User updateUser(@RequestBody User user, @PathVariable Long id) {
+		return userService.updateUserById( id, user );
+	}
+
+	@GetMapping("/users/{id}")
+	public User getUserById(@PathVariable Long id) {
+		return userService.getUserById( id );
+	}
+
+	@DeleteMapping("/users/{id}")
+	public ResponseEntity<HttpStatus> deleteUserById(@PathVariable Long id) {
+		userService.deleteUserById( id );
+		return new ResponseEntity<>( HttpStatus.NO_CONTENT );
+	}
+	
+	//*****************
 
 	@GetMapping("/invoices")
 	public List<Invoice> getAllInvoices() {

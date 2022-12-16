@@ -17,10 +17,10 @@ import lt.codeacademy.invoice.security.services.UserDetailsImpl;
 public class JwtUtils {
   private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-  //@Value("${bezkoder.app.jwtSecret}")
+  @Value("${app.jwtSecret}")
   private String jwtSecret;
 
-  //@Value("${bezkoder.app.jwtExpirationMs}")
+  @Value("${app.jwtExpirationMs}")
   private int jwtExpirationMs;
 
   public String generateJwtToken(Authentication authentication) {
@@ -30,8 +30,8 @@ public class JwtUtils {
     return Jwts.builder()
         .setSubject((userPrincipal.getUsername()))
         .setIssuedAt(new Date())
-        .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-        .signWith(SignatureAlgorithm.HS512, jwtSecret)
+        .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs)) //jwtExpirationMs
+        .signWith(SignatureAlgorithm.HS512, jwtSecret) //jwtSecret
         .compact();
   }
 
